@@ -1,0 +1,57 @@
+<!doctypehtml><html lang=fr><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><title>Folf</title><script src=https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/dist/model-viewer.min.js type=module></script><meta content=#000000 name=theme-color><style>body,html{height:100%;margin:0;background:#000;overflow:hidden;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}model-viewer{width:100vw;height:100vh;display:block;background:#000}.credits{position:fixed;left:12px;right:12px;bottom:12px;color:#e5e5e5;font:12px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:rgba(0,0,0,.55);padding:8px 12px;border-radius:8px;backdrop-filter:blur(2px);box-shadow:0 2px 12px rgba(0,0,0,.4);pointer-events:auto;z-index:2}.credits a{color:#fff;text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.35)}.credits a:hover{text-decoration:underline;border-bottom-color:transparent}</style><body><model-viewer auto-rotate autoplay camera-controls id=folf interaction-prompt=none loading=eager reveal=auto></model-viewer><div aria-label="Crédits des modèles 3D"aria-live=polite class=credits id=credits></div><script>const mv = document.getElementById('folf');
+    const $credits = document.getElementById('credits');
+    const models = [
+      {
+        key: 'fox',
+        label: 'Fox',
+        src: 'assets/fox.glb',
+        credits: {
+          modelTitle: 'Fox Minecraft',
+          modelUrl: 'https://sketchfab.com/3d-models/fox-minecraft-3c7b1e0e9a5f4897805b7ec3c4eeb5a5',
+          authorName: 'kuzneciv',
+          authorUrl: 'https://sketchfab.com/kuzneciv',
+          licenseName: 'CC BY 4.0',
+          licenseUrl: 'http://creativecommons.org/licenses/by/4.0/'
+        }
+      },
+      {
+        key: 'wolf',
+        label: 'Wolf',
+        src: 'assets/wolf.glb',
+        credits: {
+          modelTitle: 'Wolf (Dog) Minecraft',
+          modelUrl: 'https://sketchfab.com/3d-models/wolf-dog-minecraft-9e35487f302545d49f9b5617564dae63',
+          authorName: 'kuzneciv',
+          authorUrl: 'https://sketchfab.com/kuzneciv',
+          licenseName: 'CC BY 4.0',
+          licenseUrl: 'http://creativecommons.org/licenses/by/4.0/'
+        }
+      },
+      {
+        key: 'creeper',
+        label: 'Creeper',
+        src: 'assets/creeper.glb',
+        credits: {
+          modelTitle: 'minecraft Creeper',
+          modelUrl: 'https://sketchfab.com/3d-models/minecraft-creeper-b44f35e4d17b41d79cdfc7eba478bba7',
+          authorName: 'Vader',
+          authorUrl: 'https://sketchfab.com/mojtavaam',
+          licenseName: 'CC BY 4.0',
+          licenseUrl: 'http://creativecommons.org/licenses/by/4.0/'
+        }
+      }
+    ];
+
+    const choice = models[Math.floor(Math.random() * models.length)];
+
+    mv.setAttribute('src', choice.src);
+    mv.setAttribute('alt', choice.label);
+    document.title = `Folf — ${choice.label}`;
+
+    const c = choice.credits;
+    $credits.innerHTML = `
+      Crédits : <a href="${c.modelUrl}" target="_blank" rel="noopener noreferrer">${c.modelTitle}</a>
+      par <a href="${c.authorUrl}" target="_blank" rel="noopener noreferrer">${c.authorName}</a>
+      sur <a href="https://sketchfab.com" target="_blank" rel="noopener noreferrer">Sketchfab</a>
+      — <a href="${c.licenseUrl}" target="_blank" rel="noopener noreferrer">${c.licenseName}</a>.
+    `;</script>
